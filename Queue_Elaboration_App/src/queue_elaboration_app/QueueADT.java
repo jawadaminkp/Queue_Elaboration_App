@@ -1,8 +1,7 @@
-
 package queue_elaboration_app;
 
-
 public class QueueADT {
+
     //required data fields
     int[] Queue;
     int size;
@@ -11,8 +10,8 @@ public class QueueADT {
 
     //constructor
     QueueADT() {
-        Front=0;
-        rear=-1;
+        Front = 0;
+        rear = -1;
 
         Queue = new int[5];
     }
@@ -21,33 +20,44 @@ public class QueueADT {
     //returns true if the stack is empty
     boolean isEmpty() {
 
-        return rear == -1;
+        return rear == -1 || rear > Queue.length - 1;
 
     }
 
     //returns true if the stack is full
     boolean isFull() {
 
-        return Front ==0 && rear==Queue.length-1;
+        return Front == 0 && rear == Queue.length - 1;
 
     }
 
     //push method
     void EnQueue(int a) {
         if (!isFull()) {
+            if (rear < Queue.length - 1) {
 
-            rear++;
-            Queue[rear] = a;
+                rear++;
+                Queue[rear] = a;
 
-            System.out.print("Inserted to Queue: " + a);
+                System.out.print("Inserted to Queue: " + a);
+                
+             
+            }
+            
+            else{
+                System.out.println("Queue is not full but it is Simple Queue limitation");
+                System.out.println("Further Elements can not be enqueued");
+            }
+
         } else {
             System.out.println("Queue is Full");
         }
+
     }
 
     //pop method
     int DeQueue() {
-        if (!isEmpty()) {
+        if (!isEmpty() && Front < Queue.length) {
 
             int num;
 
@@ -70,13 +80,9 @@ public class QueueADT {
         int i;
         System.out.println("Queue Elements:");
         for (i = Front; i <= rear; i++) {
-            System.out.print(st[i]+"|");
-            System.out.println("");
+            System.out.print(st[i] + "|");
+
         }
     }
 
 }
-    
-    
-    
-
