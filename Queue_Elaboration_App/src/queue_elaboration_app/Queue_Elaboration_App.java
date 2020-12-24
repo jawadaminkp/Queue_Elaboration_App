@@ -30,14 +30,15 @@ public class Queue_Elaboration_App {
             
             
             
-            
-            System.out.print("Enter your choice:");
-
             System.out.println("");
+            System.out.println("------------------------");
+            System.out.print("Enter your choice: ");
+           
 
             option = askme.nextInt();
 
-            System.out.println("");
+            System.out.println("------------------------");
+          
 
             if (option == 1) {
 
